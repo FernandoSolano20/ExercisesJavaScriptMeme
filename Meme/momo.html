@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Meme Generator</title>
+        <link rel="stylesheet" href="meme.css">
+    </head>
+    <body>
+        <p>
+            <textarea id="top-text"></textarea>
+        </p>
+        <p>
+            <textarea id="bottom-text"></textarea>
+        </p>
+        <p>
+            <input type="file" id="image-input" accept="image/*">
+        </p>
+        <p>
+            <button id="generate-btn">Generate!</button>
+        </p>
+        <p>
+            <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;" width="200" height="200"></canvas>
+        </p>
+        <div id="meme-cotainer">
+            <img src="https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1" alt="" crossorigin="anonymous">
+            <img src="https://cdn.memegenerator.es/imagenes/base/64_thumb.jpg" alt="" crossorigin="anonymous">
+            <img src="https://cdn.memegenerator.es/imagenes/base/9_thumb.jpg" alt="" crossorigin="anonymous">
+            <img src="https://cdn.memegenerator.es/imagenes/base/47_thumb.jpg" alt="" crossorigin="anonymous">
+            <img src="https://img.culturacolectiva.com/featured/2019/03/06/1551885592399/por-usar-imagen-de-personas-para-memes-te-podrian-demandar-medium.jpg" alt="" crossorigin="anonymous">
+        </div>
+        <script src="meme.js"></script>
+    </body>
+</html>

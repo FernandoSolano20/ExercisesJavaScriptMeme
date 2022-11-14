@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>Data</title>
+ <style>
+  .meme{
+    width: 300px;
+    height: 400px;
+       background-color: #CCC;
+       margin: 0px auto;
+       position: relative;
+   }
+     .controls{
+      width: 300px;
+      height: 135px;
+      background-color: #999;
+      position: relative;
+      padding-top: 5px;
+      margin: 0px auto;
+      }
+        .controls input[type="text"]{
+         width: 250px;
+         margin: 5px auto;
+         display: block;
+         font-size: 16px;
+         height: 20px;
+
+        }
+        p{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 15px 0;
+            padding: 0 5px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+    #bottom{
+        position: absolute;
+        bottom: 0px;
+    }
+
+ </style>
+</head>
+<body>
+ <div class="meme" id="memecontainer">
+  <p id="top">top</p>
+  <p id="bottom">bottom</p>
+<img src="file:///C:/Users/fersolano/Documents/Exercises/Meme/image.jpg" height="400" width="300" id="momo" alt="">
+</div>
+<div class="controls" id="controls">
+ <input type="text" id="url" name="" value="image.jpg" placeholder="URL de la imagen">
+ <input type="text" id="msgtop" name="" onkeyup="setTop()" value="" placeholder="Linea de Arriba">
+ <input type="text" id="msgbtm" name="" onkeyup="setBottom()" value="" placeholder="Linea de Abajo">
+ <button type="button" id="generate" name="button">Generar imagen</button>
+</div>
+<a href="" type="button" class="download-canvas main-btn" id="download">DOWNLOAD</a>
+<img style="margin: 0px auto; width: 300px; display:block;" src="" id="output" alt="">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script type="text/javascript">
+ function setTop(){
+  document.getElementById('top').innerHTML = msgtop.value
+ }
+ function setBottom(){
+  document.getElementById('bottom').innerHTML = msgbtm.value
+ }
+ document.getElementById('generate').addEventListener('click', function(){
+  var msgtop = document.getElementById('msgtop').value
+  var msgbtm = document.getElementById('msgbtm').value
+  var url = document.getElementById('url').value
+
+  document.getElementById('momo').src=url
+
+  html2canvas(document.getElementById('memecontainer'), {
+   allowTaint: true,
+   logging: true
+    }).then(canvas => {
+    document.getElementById('output').src=canvas.toDataURL();
+    var elLink = document.getElementById("download");
+    elLink.href = canvas.toDataURL();
+    elLink.download = 'my-img.jpg';
+});
+
+  // , {
+  //  allowTaint: true,
+  //  logging: true,
+  //  onrendered: function(canvas){
+  //   document.getElementById('output').src=canvas.toDataURL("image/png");
+
+  //  }
+
+//   });
+
+
+ })
+</script>
+</body>
+</html>

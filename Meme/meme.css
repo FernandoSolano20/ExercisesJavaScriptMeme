@@ -1,0 +1,22 @@
+:root {
+    font-family: Helvetica;
+    font-size: 14px;
+}
+
+* {
+    font: inherit;
+}
+
+#meme-canvas {
+    width: 300px;
+}
+
+.meme-cotainer{
+    width: 100%;
+}
+
+#meme-cotainer img{
+    width: 19%;
+    min-height: 200px;
+    max-height: 200px;
+}
